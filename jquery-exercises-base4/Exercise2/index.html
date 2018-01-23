@@ -10,10 +10,10 @@
 <body>
 <form action="">
   Salary:
-  <input type="text" name="Salary" placeholder="Please type in your salary" id="salaryInput">
+  <input type="text" name="Salary" placeholder="Please type in your salary" id="inputalary" oninput="displaySalaryBrut()">
   Gender:
   <div>
-    <input type="radio" name="Male" value="Male">Male
+    <input type="radio" name="Male" value="Male" checked>Male
   </div>
   <div>
     <input type="radio" name="Female" value="Female">Female
@@ -66,8 +66,7 @@ Number of children
 </div>
 
 <script>
-  let salaryInput = $("#salaryInput").value;
-  console.log(salaryInput)
+
 </script>
 </body>
 </html>
