@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="jquery-2.2.4.js"></script>
+</head>
+<body>
+  <h2>Exercise 1</h2>
+<button  id="buttonman" >Click here and see</button>
+<p id="clicks"></p>
+
+<h2>Exercise 2</h2>
+<button id="addButton" >+</button>
+<button id="minusButton" >-</button>
+<p id="clickPlusMinus"></p>
+
+<h2>Exercise 3</h2>
+  <input type="text" name="NumberGuess"  id ="NumberGuess" placeholder="Type in a number her between 0 and 100">
+  <input type="submit" value="Submit" id="submitButton">
+  <p id="guessStatus"></p>
+
+<p></p>
+
+  <script>
+
+//EXERCISE 1
+  let count = 0;
+$("#buttonman").on('click', function(event){
+  count++;
+  $('#clicks').text('Wow, the number of times you have clicked on the button now amounts to: '+ count);
+});
+
+//EXERCISE 2
+ let clickBalance= 0;
+$("#addButton").on("click", function(event){
+  clickBalance++;
+  $("#clickPlusMinus").text("Your click balance is now equal to: "+ clickBalance);
+})
+$("#minusButton").on("click", function(event){
+  clickBalance = clickBalance -1 ;
+  $("#clickPlusMinus").text("Your click balance is now equal to: "+ clickBalance);
+})
+
+//EXERCISE 3
+
+let randomNumber = Math.round( Math.random() * 100 );
+      let attemptCount = 1;
+      let message = '';
+      $('#submitButton').on('click',function(event) {
+        let numberGuessed = Number($('#NumberGuess').val());
+        if (numberGuessed == '') {
+          message = 'You can\'t try with an empty value';
+        } else if (numberGuessed < 0 || numberGuessed > 100) {
+          message = 'We said between 0 and 100.';
+          attemptCount++;
+        } else if (numberGuessed < randomNumber) {
+          message = 'Your number is too small.'
+          attemptCount++;
+        } else if (numberGuessed > randomNumber) {
+          message = 'Your number is too high.'
+          attemptCount++;
+        } else {
+          if (attemptCount === 1) { // if we won at his first attempt
+            message = 'Congrats! You won at your first try!';  // we change the text into the object
+          } else { // if we won with more than one attempt
+            message = 'Congrats! You won in ' + attemptCount + ' attempts.';  // we change the text into the object
+          }
+        }
+        $('#guessStatus').text(message);
+      });
+
+
+  </script>
+</body>
+</html>

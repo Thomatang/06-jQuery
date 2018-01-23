@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="jquery-2.2.4.js"></script>
+  <link rel="stylesheet" href="style.css">
+  <title>Document</title>
+</head>
+<body>
+<h1>Square in a Box Game</h1>
+
+<div class="container">
+  <div class="square"></div>
+</div>
+<script>
+$(document).keydown(function(event){
+  switch (event.which) {
+    case 37: //left arrow key
+      if($(".square").css("left") === "-200px"){
+        $(".square").css("left","200px");
+      }
+      else {
+        $(".square").finish().animate({
+          left: "-=10"
+        })
+      }
+      ;
+      break;
+    case 38: //up arrow key
+      if($(".square").css("top") === "-200px"){
+        $(".square").css("top","200px");
+      }
+      else {
+        $(".square").finish().animate({
+          top: "-=10"
+        });
+      }
+      break;
+    case 39: //right arrow key
+    if($(".square").css("left") === "200px"){
+      $(".square").css("left","-200px");
+    }
+    else {
+      $(".square").finish().animate({
+         left: "+=10"
+      });
+    }
+      break;
+    case 40: //down arrow key
+    if($(".square").css("top") === "200px"){
+      $(".square").css("top","-200px");
+    }
+    else {
+      $(".square").finish().animate({
+        top: "+=10"
+      });
+    }
+      break;
+  }
+
+})
+</script>
+</body>
+</html>

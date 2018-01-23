@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="style.css">
+  <title>Document</title>
+</head>
+<body>
+<form action="">
+  Salary:
+  <input type="text" name="Salary" placeholder="Please type in your salary" id="salaryInput">
+  Gender:
+  <div>
+    <input type="radio" name="Male" value="Male">Male
+  </div>
+  <div>
+    <input type="radio" name="Female" value="Female">Female
+  </div>
+Number of children
+  <input type="text" name="Number of children" placeholder="How many kids do you have?">
+  <input type="submit" name="Calculate Salary" value="Calculate Salary">
+</form>
+
+<div class="result">
+  <div class="row">
+    <p>Salary</p>
+    <div class="salary">
+    </div>
+  </div>
+  <div class="row">
+    <p>Expenses(18%)</p>
+    <div class="expenses">$</div>
+  </div>
+  <div class="row">
+    <p>Insurance Costs(7%)</p>
+  <div class="insuranceCosts">
+    $
+  </div>
+  </div>
+  <div class="row">
+    <p>Social Security (5%)</p>
+    <div class="socialSecurity">
+      $
+    </div>
+  </div>
+  <div class="row">
+    <p>Gender Discount</p>
+    <div class="genderDiscount">
+      $
+    </div>
+  </div>
+  <div class="row">
+    <p>Children Discount</p>
+    <div class="childrenDiscount">
+    $
+    </div>
+  </div>
+  <div class="row">
+    <p>Total</p>
+    <div class="total">
+    $
+    </div>
+  </div>
+</div>
+
+<script>
+  let salaryInput = $("#salaryInput").value;
+  console.log(salaryInput)
+</script>
+</body>
+</html>

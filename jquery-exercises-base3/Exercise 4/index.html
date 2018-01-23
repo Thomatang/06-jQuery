@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="jquery-2.2.4.js"></script>
+  <link rel="stylesheet" href="style.css">
+  <title>Document</title>
+</head>
+<body>
+<div class="container">
+  <div class ="rectangleContainer">
+    <div class="rectangle">
+      <p>Ceci n'est pas un rectangle</p>
+    </div>
+  </div>
+  <div class="buttonContainer">
+    <button class="button1">Bigger</button>
+    <button class="button2">Green</button>
+    <button class="button3">B & W</button>
+    <button class="button4">Houdini</button>
+    <button class="button5">Reverse Houdini</button>
+  </div>
+</div>
+
+<script>
+
+//BUTTON 1
+  $(".button1").on("click", function(event){
+    let maxHeight =  100;
+    event= $(".rectangle").height();
+    if ( event < maxHeight) {
+      $(".rectangle").css("height", function(event){
+      event= $(".rectangle").height();
+      return event+10;
+      })
+    }
+    else {
+      $(".rectangle").css("height", function(event){
+      event= $(".rectangle").height();
+      return event = 10;
+    })
+    }
+  });
+
+//BUTTON 2
+  $(".button2").on("click", function(event){
+    $(".rectangle").css("border-color", "green");
+    $(".rectangle").css("background-color", "green");
+  })
+//BUTTON 3
+  $(".button3").on("click", function(event){
+    $(".rectangle").css("border-color", "black");
+    $(".rectangle").css("background-color", "white");
+  })
+
+//BUTTON 4
+$(".button4").on("click", function(event){
+  $(".rectangle").hide();
+});
+//BUTTON 5
+$(".button5").on("click", function(event){
+  $(".rectangle").show();
+})
+</script>
+</body>
+</html>

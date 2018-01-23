@@ -1,0 +1,17 @@
+form {
+  width: 500px;
+  display: flex;
+  flex-direction: column;
+}
+
+
+.result {
+  margin: 20px;
+}
+.row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  border: solid black 1px;
+}

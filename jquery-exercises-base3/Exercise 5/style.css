@@ -1,0 +1,14 @@
+.container {
+  height: 400px;
+  width: 400px;
+  border: solid black 5px;
+  
+}
+
+.square{
+  height: 10px;
+  width: 10px;
+  background-color: black;
+  position:relative;
+  margin: 200px auto 0;
+}
