@@ -4,69 +4,152 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+  <script src="jquery-2.2.4.js"></script>
   <title>Document</title>
 </head>
 <body>
-<form action="">
+  <h1 class="col-12">
+    Your Salary Calculator
+  </h1>
+<form action="" id="forma" class="col-12">
   Salary:
-  <input type="text" name="Salary" placeholder="Please type in your salary" id="inputalary" oninput="displaySalaryBrut()">
+  <input type="text" name="Salary" placeholder="Please type in your salary" id="baseSalary" >
   Gender:
   <div>
-    <input type="radio" name="Male" value="Male" checked>Male
+    <input type="radio" name="selectedGender" value="Male" checked>Male
   </div>
   <div>
-    <input type="radio" name="Female" value="Female">Female
+    <input type="radio" name="selectedGender" value="Female">Female
   </div>
 Number of children
-  <input type="text" name="Number of children" placeholder="How many kids do you have?">
-  <input type="submit" name="Calculate Salary" value="Calculate Salary">
+  <input type="text" name="Number of children" placeholder="How many kids do you have?" id="nbChildren">
+  <input type="submit" name="Calculate Salary" value="Calculate Salary" id="submitButton">
 </form>
 
-<div class="result">
-  <div class="row">
-    <p>Salary</p>
-    <div class="salary">
+<div class="result col-10">
+  <div class="rows col-12">
+    <p class="col-6">Salary</p>
+    <div class="salary col-6">
     </div>
   </div>
-  <div class="row">
-    <p>Expenses(18%)</p>
-    <div class="expenses">$</div>
+  <div class="rows col-12">
+    <p class="col-6">Expenses(18%)</p>
+    <div class="expenses col-6"></div>
   </div>
-  <div class="row">
-    <p>Insurance Costs(7%)</p>
-  <div class="insuranceCosts">
-    $
+  <div class="rows col-12">
+    <p class="col-6">Insurance Costs(7%)</p>
+  <div class="insuranceCosts col-6">
+
   </div>
   </div>
-  <div class="row">
-    <p>Social Security (5%)</p>
-    <div class="socialSecurity">
-      $
+  <div class="rows col-12">
+    <p class="col-6">Social Security (5%)</p>
+    <div class="socialSecurity col-6">
+
     </div>
   </div>
-  <div class="row">
-    <p>Gender Discount</p>
-    <div class="genderDiscount">
-      $
+  <div class="rows col-12">
+    <p class="col-6">Gender Discount</p>
+    <div class="genderDiscount col-6">
+
     </div>
   </div>
-  <div class="row">
-    <p>Children Discount</p>
-    <div class="childrenDiscount">
-    $
+  <div class="rows col-12">
+    <p class="col-6">Children Discount</p>
+    <div class="childrenDiscount col-6">
+
     </div>
   </div>
-  <div class="row">
-    <p>Total</p>
-    <div class="total">
-    $
+  <div class="rows">
+    <p class="col-6">Total</p>
+    <div class="total col-6">
+
     </div>
   </div>
 </div>
 
 <script>
 
+//INPUT 1: getInputSalary
+let baseSalary = parseInt ($("#baseSalary").val());
+
+//INPUT 2 : getGenderDiscount
+//map radio button Gender inputs
+let gender = new Array();
+gender["Male"]= 0;
+gender["Female"]= 0.02;
+
+//Calculate Gender genderDiscount percentage
+function getGenderDiscount() {
+  let genderDiscount = 0;
+  let selectedGenders = $("[name='selectedGender']");
+  // let's loop through each radio button
+  for ( let i=0; i< selectedGenders.length; i++) {
+    //if the radio button is checked
+    if(selectedGenders[i].checked) {
+      // match selection to percentage value
+      genderDiscount = gender [selectedGenders[i].value];
+      break;
+    }
+  }
+  return genderDiscount;
+}
+
+// INPUT 3 Number of children
+
+function getChildrenDiscount() {
+  let childrenDiscount = 0
+  let nbChildren = parseInt ($("#nbChildren").val());
+  if(nbChildren===3) {
+    childrenDiscount = 0.01;
+  }
+  else if (nbChildren >= 4) {
+    childrenDiscount= 0.02
+  }
+  else {
+    childrenDiscount =0;
+  }
+  return childrenDiscount;
+}
+
+// create the function that will calculate the final Salary
+ function calculateFinalSalary () {
+   let baseSalary = parseInt ($("#baseSalary").val());
+    $(".salary").text(baseSalary + "$"); //display on html board
+
+   let expenses = baseSalary * 0.18;
+   $(".expenses").text(expenses+ "$")
+   let insuranceCosts = Math.floor(baseSalary * 0.07);
+   $(".insuranceCosts").text(insuranceCosts+ "$")
+   let socialSecurity = baseSalary * 0.05;
+    $(".socialSecurity").text(socialSecurity+ "$")
+   let totalCosts = expenses+insuranceCosts+socialSecurity;
+
+   let genderDiscount = totalCosts* getGenderDiscount();
+   $(".genderDiscount").text(genderDiscount+ "$")
+   let childrenDiscount =totalCosts* getChildrenDiscount();
+    $(".childrenDiscount").text(childrenDiscount+ "$")
+   let totalDiscount = genderDiscount + childrenDiscount;
+
+   let finalSalary= baseSalary - totalCosts+ totalDiscount
+   $(".total").text(finalSalary+ "$")
+   console.log(finalSalary)
+ }
+//CREATE CLICK event
+$("#submitButton").click( function(event) {
+  //retrieve value of base salary input
+  let baseSalary = parseInt ($("#baseSalary").val());
+  getGenderDiscount();
+  getChildrenDiscount();
+  let nbChildren = parseInt ($("#nbChildren").val());
+  calculateFinalSalary();
+  //displayResults();
+  return false;
+}
+)
 </script>
 </body>
 </html>
