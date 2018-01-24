@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="jquery-2.2.4.js"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<h1 class="maintitle">Rock, Papers, Scissors</h1>
+<h2 class="subtitle">Man Vs. Machine</h2>
+
+<div class="container">
+  <div class="manContainer">
+    <div>Click on an icon to choose your weapon
+    </div>
+    <div class="manIconContainer">
+      <div class="manRock">
+        <i class="fa fa-hand-rock-o" aria-hidden="true"></i>
+      </div>
+      <div class="manPaper">
+        <i class=" fa fa-hand-paper-o" aria-hidden="true"></i>
+      </div>
+      <div class="manScissors">
+        <i class="fa fa-hand-scissors-o" aria-hidden="true"></i>
+      </div>
+    </div>
+  </div>
+  <div class="machineContainer">
+    <div>Machine's choice</div>
+    <div class="machineIconContainer">
+      <div class="machineRock">
+        <i class="fa fa-hand-rock-o" aria-hidden="true"></i>
+      </div>
+      <div class="machinePaper">
+        <i class="fa fa-hand-paper-o" aria-hidden="true"></i>
+      </div>
+      <div class="machineScissors">
+        <i class="fa fa-hand-scissors-o" aria-hidden="true"></i>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="scoreContainer">
+  <h3 class="result">
+  </h3>
+</div>
+
+<script src="https://use.fontawesome.com/c9d3cd7efa.js"></script>
+<script>
+let userChoice="";
+let machineChoice = Math.random();
+
+$(".manRock, .manPaper, .manScissors").click(function(event){
+  //assign machineChoice according to random number generated
+  if(machineChoice<0.34){
+    machineChoice= "rock";
+    $(".machineRock").css("background","red");
+    setTimeout(function(){
+  $(".machineRock").css("background", "none");
+}, 1000);
+  }
+  else if (machineChoice<=0.67) {
+    machineChoice="paper";
+    $(".machinePaper").css("background","blue");
+    setTimeout(function(){
+  $(".machinePaper").css("background", "none");
+}, 1000);
+  }
+  else {
+    machineChoice="scissors";
+    $(".machineScissors").css("background","green");
+    setTimeout(function(){
+  $(".machineScissors").css("background", "none");
+}, 1000);
+  }
+  //modify user choice according to icon that has been clicked
+  switch ($(event.target).parent().attr('class')) {
+    case "manRock":
+    userChoice = "rock";
+    $(".manRock").css("background","red");
+    setTimeout(function(){
+  $(".manRock").css("background", "none");
+}, 1000);
+    break;
+    case "manPaper":
+    userChoice = "paper";
+    $(".manPaper").css("background","green");
+    setTimeout(function(){
+  $(".manPaper").css("background", "none");
+}, 1000);
+    break;
+    case "manScissors":
+    userChoice = "scissors";
+    $(".manScissors").css("background","blue");
+    setTimeout(function(){
+  $(".manScissors").css("background", "none");
+}, 1000);
+    break;
+  }
+  let compare = function(choice1, choice2){
+    if(choice1===choice2) {
+      $(".result").text("Oh wow ,it's a tie, how exciting! Go again");
+    }
+    else if (choice1==="rock") {
+      if(choice2==="scissors") {
+        $(".result").text("As Confucius once said:'Rock smashes scissors'.You win!");
+      }
+      else {
+        $(".result").text("Power is not always a virtue, the machine wins the point with paper");
+      }
+      }
+    else if (choice1==="paper") {
+      if(choice2==="scissors") {
+        $(".result").text("Chop Chop, the machine is cuts you up with scissors");
+      }
+      else {
+        $(".result").text("The wisdom of paper overcomes the power of rock. Humanity has a chance");
+      }
+    }
+    else if (choice1==="scissors") {
+      if(choice2==="rock") {
+        $(".result").text("You are sharp, however the machines have been blunt and smash you and your human arrogance");
+      }
+      else {
+        $(".result").text("The machine has attempted to trick you with paper, but you are too cunning for that, well done!");
+      }
+    }
+
+  }
+  compare(userChoice, machineChoice);
+})
+
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,56 @@
+html {
+  background: url(manVmachine.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+body{
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.maintitle {
+  color: white;
+  background-color: black;
+}
+.subtitle {
+  color: white;
+  background-color: black;
+}
+
+.container{
+  width: 400px;
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  background-color: black;
+  border-radius: 500%;
+  color : white;
+}
+
+.manIconContainer{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin : 0 auto;
+}
+.machineIconContainer{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+i.fa {
+  font-size: 40px;
+}
+
+.result {
+  background-color: black;
+  color:white;
+  font-size: 30px;
+}
