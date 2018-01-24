@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="stylesheet" href="style.css">
+  <script src="jquery-2.2.4.js"></script>
+  <title>Document</title>
+</head>
+<body>
+  <div class="col-12 ">
+    <form action="" class= "col-8 offset-2 d-flex flex-column">
+      <input type="text" id="firstName" placeholder="Please type in your First Name" required pattern ="[A-Za-z\-]+">
+      <input type="text" id="lastName" placeholder="Please type in your Last Name" required pattern ="[A-Za-z\-]+">
+      <input type="date" id="bDay" placeholder="Please select your birthday" required>
+      <input type="text" id="city" placeholder="Where were you born?" required pattern ="[A-Za-z\-]+" >
+      <input type="text" id="job" placeholder="What's your job?" required pattern ="[A-Za-z\-]+" >
+      <input type="text" id="company" placeholder="What's your company's name?" required pattern ="[A-Za-z\-]+" >
+      <input type="submit" id="submitButton">
+    </form>
+    <div class="sentence">
+
+    </div>
+  </div>
+  <script>
+
+$("#submitButton").click(function(event){
+  let fName = ($("#firstName").val());
+  let lName = ($("#lastName").val());
+  let bDay = ($("#bDay").val());
+  let city = ($("#city").val());
+  let job = ($("#job").val());
+  let company = ($("#company").val());
+  $(".sentence").text(fName+" "+lName+", born on "+bDay+" in "+city+", currently "+job+" at "+company)
+  return false
+}
+
+)
+  </script>
+</body>
+</html>
