@@ -6,17 +6,19 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
   <link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
+  <link rel="stylesheet" href="animate.css">
   <link rel="stylesheet" href="style.css">
+
   <script src="jquery-2.2.4.js"></script>
   <title>Document</title>
 </head>
 <body>
-  <h1 class="col-12">
+  <h1 class="gradientcolor col-12">
     Your Salary Calculator
   </h1>
-<form action="" id="forma" class="col-12">
+<form action="" id="forma" class="borderGradient gradientcolor col-12">
   Salary:
-  <input type="text" name="Salary" placeholder="Please type in your salary" id="baseSalary" >
+  <input type="text" name="Salary" placeholder="Please type in your salary" id="baseSalary"  >
   Gender:
   <div>
     <input type="radio" name="selectedGender" value="Male" checked>Male
@@ -25,11 +27,11 @@
     <input type="radio" name="selectedGender" value="Female">Female
   </div>
 Number of children
-  <input type="text" name="Number of children" placeholder="How many kids do you have?" id="nbChildren">
+  <input type="text" name="Number of children" placeholder="How many kids do you have?" id="nbChildren" >
   <input type="submit" name="Calculate Salary" value="Calculate Salary" id="submitButton">
 </form>
 
-<div class="result col-10">
+<div class="result borderGradient col-10">
   <div class="rows col-12">
     <p class="col-6">Salary</p>
     <div class="salary col-6">

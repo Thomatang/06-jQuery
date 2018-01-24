@@ -2,6 +2,40 @@ body{
   font-family: 'PT Sans', sans-serif;
 }
 
+
+
+.gradientcolor{
+  color: #f35626;
+    background-image: -webkit-linear-gradient(92deg,#f35626,#feab3a);
+    -webkit-background-clip: text;
+    /* -webkit-text-fill-color: transparent; */
+    -webkit-animation: hue 15s infinite linear;
+}
+
+.borderGradient {
+  border: solid #f35626 2px;
+  border-radius: 8px;
+    background-image: -webkit-linear-gradient(92deg,#f35626,#feab3a);
+    -webkit-background-clip: text;
+    -webkit-border-fill-color: transparent;
+    -webkit-animation: hue 15s infinite linear;
+}
+/* .backgroundGradient {
+  background-color: #f35626;
+    background-image: -webkit-linear-gradient(92deg,#f35626,#feab3a);
+    -webkit-background-clip: text;
+    -webkit-background-fill-color: transparent;
+    -webkit-animation: hue 10s infinite linear;
+} */
+
+@keyframes hue {
+0% {
+    -webkit-filter: hue-rotate(0deg);
+}
+100% {
+    -webkit-filter: hue-rotate(-360deg);
+}
+}
  h1 {
    text-align: center;
  }
@@ -11,11 +45,27 @@ form {
   flex-direction: column;
 }
 
+#forma {
+  border-radius: 9px;
+  padding : 20px;
+}
+
+#baseSalary, #nbChildren {
+  color: #f35626;
+}
+#submitButton {
+  margin: 10px;
+  color: white;
+  border-radius: 8px;
+  background-color: #f35626;
+  background-image: -webkit-linear-gradient(92deg,#f35626,#feab3a);
+}
+
 
 .result {
-  background-color: black;
+  color: #f35626;
   border-radius: 50px;
-  color: white;
+  /* color: black; */
   margin: 20px auto;
   padding: 30px;
   font-size: 20px;
